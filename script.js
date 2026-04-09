@@ -33,3 +33,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+const contactForm = document.getElementById('contact-form');
+const successMessage = document.getElementById('form-success');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(contactForm);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+    .then(() => {
+      // Hide the form and show the success message
+      contactForm.style.display = 'none';
+      successMessage.style.display = 'block';
+    })
+    .catch((error) => alert("Form submission failed: " + error));
+  });
+}

@@ -152,11 +152,28 @@
     </section>
 
     <section id="contact" class="container">
-        <div style="text-align: center;">
+        <div style="text-align: center; max-width: 600px; margin: 0 auto;">
             <h2>Let's build something <span>Premium</span>.</h2>
             <p>Open for roles in Web Development and Automation Engineering.</p>
-            <div class="btn-group" style="margin-top: 30px;">
-                <a href="mailto:nancykerry77@gmail.com" class="btn-main">EMAIL ME</a>
+    
+            <form id="contact-form" name="portfolio-contact" method="POST" data-netlify="true">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+                </div>
+                <button type="submit" class="btn-main" style="width: 100%; margin-top: 10px; cursor: pointer;">SEND
+                    MESSAGE</button>
+            </form>
+    
+            <div id="form-success"
+                style="display: none; margin-top: 20px; padding: 20px; border: 1px solid var(--accent-color);">
+                <h3>Thank you!</h3>
+                <p>I've received your message and we'll get back to you shortly.</p>
             </div>
         </div>
     </section>
